@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Exploration Page</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* IMPROVEMENT: Add a smooth transition for the mobile menu */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- 1. Navigation Bar (with A11y and UX Improvements) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Travel<span class="text-cyan-500">Scape</span></a>
+            
+            <!-- IMPROVEMENT: Hamburger button with ARIA attributes for accessibility -->
+            <div class="md:hidden">
+                <button 
+                    id="menu-btn" 
+                    class="text-gray-800 focus:outline-none" 
+                    aria-label="Toggle menu" 
+                    aria-expanded="false"
+                >
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <!-- IMPROVEMENT: Active page indication for accessibility and UX -->
+                <li><a href="#" class="text-cyan-500 font-semibold" aria-current="page"><i class="fas fa-home mr-2"></i>Home</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-cyan-500 transition duration-300"><i class="fas fa-map-location-dot mr-2"></i>Places</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-cyan-500 transition duration-300"><i class="fas fa-images mr-2"></i>Gallery</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-cyan-500 transition duration-300"><i class="fas fa-envelope mr-2"></i>Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- IMPROVEMENT: Mobile Menu with better transition handling -->
+        <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0">
+            <ul class="px-6 pb-4 pt-2 space-y-4">
+                <li><a href="#" class="block text-cyan-500 font-semibold"><i class="fas fa-home mr-2"></i>Home</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-cyan-500"><i class="fas fa-map-location-dot mr-2"></i>Places</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-cyan-500"><i class="fas fa-images mr-2"></i>Gallery</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-cyan-500"><i class="fas fa-envelope mr-2"></i>Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Hero Section -->
+        <section 
+            class="relative h-screen flex items-center justify-center bg-cover bg-center" 
+            style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop');"
+        >
+            <!-- PERFORMANCE NOTE: In production, use optimized images and consider the <picture> element for different screen sizes. -->
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 text-center text-white p-6">
+                <h1 class="text-5xl md:text-7xl font-extrabold drop-shadow-lg">Discover Your Next Adventure</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">
+                    Explore breathtaking destinations and create unforgettable memories. Your journey begins here.
+                </p>
+                <a href="#explore" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Explore Now
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. Video with Subtitles and Audio Element -->
+        <section class="py-20 bg-gray-100">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">A Glimpse of Paradise</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mb-10">Watch our promotional video to see what awaits you, and listen to some soothing music to set the mood.</p>
+                <div class="max-w-4xl mx-auto mb-12">
+                     <video class="w-full rounded-lg shadow-xl" controls>
+                        <source src="video.mp4" type="video/mp4">
+                        <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Background Music</h3>
+                     <audio controls class="mx-auto">
+                        <source src="nature.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. Fetch API Section (with Improved Loading/Error States) -->
+        <section id="explore" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">From Our Travel Blog</h2>
+                
+                <div id="posts-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Posts will be dynamically inserted here -->
+                </div>
+                
+                <!-- IMPROVEMENT: Loading spinner and better feedback messages -->
+                <div id="feedback-container" class="text-center mt-8">
+                    <!-- Spinner shown while loading -->
+                    <div id="loading-spinner" class="flex justify-center items-center">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500"></div>
+                        <p class="ml-4 text-gray-600">Loading posts...</p>
+                    </div>
+                    <!-- Message for errors or no data -->
+                    <p id="feedback-message" class="hidden text-gray-500"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer with Accessible SVG -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto text-center">
+            <!-- IMPROVEMENT: SVG is decorative, so hide it from screen readers -->
+            <svg class="w-16 h-16 mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L8 12v1c0 1.1.9 2 2 2v4.93zm2 0V15c0-1.1.9-2 2-2v-1l3.79-1.86c.13.58.21 1.17.21 1.79 0 4.08-3.05 7.44-7 7.93zM12 4c1.47 0 2.82.51 3.86 1.36L12 7.5 8.14 5.36C9.18 4.51 10.53 4 12 4z"/>
+            </svg>
+            <p class="font-semibold text-xl mb-2">TravelScape Inc.</p>
+            <p class="text-gray-400">© 2024 All Rights Reserved. Explore the world with us.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript with Improvements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Hamburger Menu Logic (Improved for A11y and UX) ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                // Toggle ARIA attribute for accessibility
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                // Toggle classes for smooth transition
+                mobileMenu.classList.toggle('max-h-0');
+                mobileMenu.classList.toggle('max-h-screen'); // A large enough value
+            });
+
+            // --- Fetch API Logic (Improved with better feedback) ---
+            const postsContainer = document.getElementById('posts-container');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const feedbackMessage = document.getElementById('feedback-message');
+
+            const showFeedback = (message) => {
+                loadingSpinner.classList.add('hidden');
+                feedbackMessage.textContent = message;
+                feedbackMessage.classList.remove('hidden');
+            };
+
+            async function fetchPosts() {
+                try {
+                    const response = await fetch('travel.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    const posts = await response.json();
+                    
+                    // Hide the entire feedback container if data is successfully loaded
+                    feedbackContainer.classList.add('hidden');
+                    
+                    if (posts.length === 0) {
+                        showFeedback('No posts found. Check back later!');
+                        return;
+                    }
+
+                    posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        // Added a nice hover effect on the entire card
+                        postElement.classList.add('bg-white', 'p-6', 'rounded-lg', 'shadow-lg', 'hover:shadow-xl', 'transition-all', 'duration-300', 'transform', 'hover:-translate-y-1');
+                        
+                        postElement.innerHTML = `
+                            <h3 class="text-xl font-bold text-cyan-600 mb-2 capitalize">${post.title.split(' ').slice(0, 4).join(' ')}</h3>
+                            <p class="text-gray-700 text-sm">${post.body.substring(0, 100)}...</p>
+                        `;
+                        
+                        postsContainer.appendChild(postElement);
+                    });
+
+                } catch (error) {
+                    showFeedback('Failed to load posts. Please try again later.');
+                    console.error('Fetch error:', error);
+                }
+            }
+
+            fetchPosts();
+        });
+    </script>
+
+</body>
+</html>
