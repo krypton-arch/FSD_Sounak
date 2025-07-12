@@ -41,9 +41,9 @@
             <ul class="hidden md:flex items-center space-x-8">
                 <!-- IMPROVEMENT: Active page indication for accessibility and UX -->
                 <li><a href="#" class="text-cyan-500 font-semibold" aria-current="page"><i class="fas fa-home mr-2"></i>Home</a></li>
-                <li><a href="#" class="text-gray-600 hover:text-cyan-500 transition duration-300"><i class="fas fa-map-location-dot mr-2"></i>Places</a></li>
-                <li><a href="#" class="text-gray-600 hover:text-cyan-500 transition duration-300"><i class="fas fa-images mr-2"></i>Gallery</a></li>
-                <li><a href="#" class="text-gray-600 hover:text-cyan-500 transition duration-300"><i class="fas fa-envelope mr-2"></i>Contact</a></li>
+                <li><a href="#places" class="text-gray-600 hover:text-cyan-500"><i class="fas fa-map-location-dot mr-2"></i>Places</a></li>
+                <li><a href="#gallery" class="text-gray-600 hover:text-cyan-500"><i class="fas fa-images mr-2"></i>Gallery</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-cyan-500"><i class="fas fa-envelope mr-2"></i>Contact</a></li>
             </ul>
         </nav>
 
@@ -51,9 +51,9 @@
         <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0">
             <ul class="px-6 pb-4 pt-2 space-y-4">
                 <li><a href="#" class="block text-cyan-500 font-semibold"><i class="fas fa-home mr-2"></i>Home</a></li>
-                <li><a href="#" class="block text-gray-600 hover:text-cyan-500"><i class="fas fa-map-location-dot mr-2"></i>Places</a></li>
-                <li><a href="#" class="block text-gray-600 hover:text-cyan-500"><i class="fas fa-images mr-2"></i>Gallery</a></li>
-                <li><a href="#" class="block text-gray-600 hover:text-cyan-500"><i class="fas fa-envelope mr-2"></i>Contact</a></li>
+                <li><a href="#places" class="text-gray-600 hover:text-cyan-500"><i class="fas fa-map-location-dot mr-2"></i>Places</a></li>
+                <li><a href="#gallery" class="text-gray-600 hover:text-cyan-500"><i class="fas fa-images mr-2"></i>Gallery</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-cyan-500"><i class="fas fa-envelope mr-2"></i>Contact</a></li>
             </ul>
         </div>
     </header>
@@ -76,6 +76,67 @@
                 </a>
             </div>
         </section>
+        <!-- 5. Places Section -->
+<section id="places" class="py-20 bg-gray-100">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Top Places to Visit</h2>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+        <img src="cities/paris.jpeg" class="w-full h-48 object-cover rounded-md mb-4" alt="Paris">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Paris, France</h3>
+        <p class="text-gray-600 text-sm">Experience the romance and charm of the Eiffel Tower and timeless streets of Paris.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+        <img src="cities/bali.jpeg" class="w-full h-48 object-cover rounded-md mb-4" alt="Bali">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Bali, Indonesia</h3>
+        <p class="text-gray-600 text-sm">Relax on stunning beaches, explore temples, and embrace island life in Bali.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+        <img src="cities/kyoto.jpeg" class="w-full h-48 object-cover rounded-md mb-4" alt="Kyoto">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Kyoto, Japan</h3>
+        <p class="text-gray-600 text-sm">Dive into tradition and serenity with Kyoto's temples, shrines, and gardens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Gallery Section -->
+<section id="gallery" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Travel Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src="places/mountain.jpeg" class="w-full h-60 object-cover rounded-lg" alt="Mountains">
+      <img src="places/beach.jpeg" class="w-full h-60 object-cover rounded-lg" alt="Beach">
+      <img src="places/city.jpeg" class="w-full h-60 object-cover rounded-lg" alt="City">
+      <img src="places/desert.jpeg" class="w-full h-60 object-cover rounded-lg" alt="Desert">
+      <img src="places/forest.jpeg" class="w-full h-60 object-cover rounded-lg" alt="Forest">
+      <img src="places/island.jpeg" class="w-full h-60 object-cover rounded-lg" alt="Island">
+    </div>
+  </div>
+</section>
+
+<!-- 7. Contact Section -->
+<section id="contact" class="py-20 bg-gray-100">
+  <div class="container mx-auto px-6 max-w-3xl">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Get in Touch</h2>
+    <form class="bg-white p-8 rounded-lg shadow-lg">
+      <div class="mb-6">
+        <label class="block mb-2 text-gray-700 font-semibold" for="name">Name</label>
+        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+      </div>
+      <div class="mb-6">
+        <label class="block mb-2 text-gray-700 font-semibold" for="email">Email</label>
+        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+      </div>
+      <div class="mb-6">
+        <label class="block mb-2 text-gray-700 font-semibold" for="message">Message</label>
+        <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required></textarea>
+      </div>
+      <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold transition duration-300">Send Message</button>
+    </form>
+  </div>
+</section>
+
 
         <!-- 3. Video with Subtitles and Audio Element -->
         <section class="py-20 bg-gray-100">
